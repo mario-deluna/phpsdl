@@ -23,27 +23,38 @@ extern "C"
         // create extension
         static Php::Extension extension("phpsdl","1.0");
         
-        // add the SDL Constants
+        // add the init SDL Constants
         extension.add(Php::Constant("PHPSDL_INIT_TIMER", PHPSDL_INIT_TIMER));
+        extension.add(Php::Constant("PHPSDL_INIT_AUDIO", PHPSDL_INIT_AUDIO));
+        extension.add(Php::Constant("PHPSDL_INIT_VIDEO", PHPSDL_INIT_VIDEO));
+        extension.add(Php::Constant("PHPSDL_INIT_JOYSTICK", PHPSDL_INIT_JOYSTICK));
+        extension.add(Php::Constant("PHPSDL_INIT_HAPTIC", PHPSDL_INIT_HAPTIC));
+        extension.add(Php::Constant("PHPSDL_INIT_GAMECONTROLLER", PHPSDL_INIT_GAMECONTROLLER));
+        extension.add(Php::Constant("PHPSDL_INIT_EVENTS", PHPSDL_INIT_EVENTS));
+        extension.add(Php::Constant("PHPSDL_INIT_NOPARACHUTE", PHPSDL_INIT_NOPARACHUTE));
+        extension.add(Php::Constant("PHPSDL_INIT_EVERYTHING", PHPSDL_INIT_EVERYTHING));
 
-
-//         const int PHPSDL_INIT_TIMER             = SDL_INIT_TIMER;
-// const int PHPSDL_INIT_AUDIO             = SDL_INIT_AUDIO;
-// const int PHPSDL_INIT_VIDEO             = SDL_INIT_VIDEO;
-// const int PHPSDL_INIT_JOYSTICK          = SDL_INIT_JOYSTICK;
-// const int PHPSDL_INIT_HAPTIC            = SDL_INIT_HAPTIC;
-// const int PHPSDL_INIT_GAMECONTROLLER    = SDL_INIT_GAMECONTROLLER;
-// const int PHPSDL_INIT_EVENTS            = SDL_INIT_EVENTS;
-// const int PHPSDL_INIT_NOPARACHUTE       = SDL_INIT_NOPARACHUTE;
-// const int PHPSDL_INIT_EVERYTHING        = SDL_INIT_EVERYTHING;
-
-        // SDL init
+        /**
+         * SDL INIT
+         */
         extension.add<PHPSDL_Init>("SDL_Init", {
             Php::ByVal("flag", Php::Type::Numeric)
         });
 
-        // SDL Window
-        extension.add<PHPSDL_CreateWindow>("SDL_CreateWindow");
+        
+        /**
+         * SDL Window
+         */
+        Php::Class<PHPSDLWindow> sdlWindow("SDLWindow");
+
+        sdlWindow.method<&PHPSDLWindow::__construct>("__construct", Php::Public, {
+            Php::ByVal("string", Php::Type::String),
+        });
+
+        sdlWindow.method<&PHPSDLWindow::__destruct>("__destruct");
+
+        // add the class
+        extension.add(std::move(sdlWindow));
         
         // return the extension module
         return extension.module();

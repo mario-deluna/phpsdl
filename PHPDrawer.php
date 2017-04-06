@@ -3,10 +3,11 @@
  * SDL init
  */
 
-if (SDL_Init(PHPSDL_INIT_TIMER) != 0)
+if (SDL_Init(PHPSDL_INIT_VIDEO) != 0)
 {
 	die("Could not initalize SDL.");
 }
 
-$window = SDL_CreateWindow();
+$window = new SDLWindow("Hallo Window");
 
+var_dump($window); die;
