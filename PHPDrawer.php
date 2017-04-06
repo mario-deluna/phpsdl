@@ -3,7 +3,7 @@
  * SDL init
  */
 
-if (SDL_Init(SDL_INIT_VIDEO) != 0)
+if (SDL_Init(PHPSDL_INIT_TIMER) != 0)
 {
 	die("Could not initalize SDL.");
 }

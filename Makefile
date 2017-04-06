@@ -6,9 +6,9 @@ PREFIX			= /usr
 
 LD              = g++
 LD_FLAGS        = -Wall -shared -O2 -I/usr/local/include/SDL2 -D_THREAD_SAFE -L/usr/local/lib -lSDL2
-RESULT          = phpsdl.so
+RESULT          = build/phpsdl.so
 
-SOURCES			= $(wildcard *.cpp)
+SOURCES			= $(wildcard src/*.cpp)
 OBJECTS         = $(SOURCES:%.cpp=%.o)
 
 all:	${OBJECTS} ${RESULT}
