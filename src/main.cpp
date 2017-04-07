@@ -13,6 +13,8 @@
 // import
 #include "phpsdl.h"
 #include "phpsdl_window.h"
+#include "phpsdl_renderer.h"
+#include "phpsdl_event.h"
 
 // Symbols are exported according to the "C" language
 extern "C" 
@@ -35,12 +37,22 @@ extern "C"
         extension.add(Php::Constant("PHPSDL_INIT_EVERYTHING", PHPSDL_INIT_EVERYTHING));
 
         /**
-         * SDL INIT
+         * SDL Main
          */
+        // init
         extension.add<PHPSDL_Init>("SDL_Init", {
             Php::ByVal("flag", Php::Type::Numeric)
         });
-
+        
+        // quit
+        extension.add<PHPSDL_Quit>("SDL_Quit");
+        
+        /**
+         * SDL Events
+         */
+        // pump events
+        extension.add<PHPSDL_PumpEvents>("SDL_PumpEvents");
+        
         
         /**
          * SDL Window
@@ -55,6 +67,20 @@ extern "C"
 
         // add the class
         extension.add(std::move(sdlWindow));
+        
+        /**
+         * SDL Renderer
+         */
+        Php::Class<PHPSDLRenderer> sdlRenderer("SDLRenderer");
+        
+        sdlRenderer.method<&PHPSDLRenderer::__construct>("__construct", Php::Public, {
+            Php::ByVal("window", Php::Type::Object),
+        });
+        
+        sdlRenderer.method<&PHPSDLRenderer::__destruct>("__destruct");
+        
+        // add the class
+        extension.add(std::move(sdlRenderer));
         
         // return the extension module
         return extension.module();

@@ -27,15 +27,6 @@ void PHPSDLWindow::__construct(Php::Parameters &parameters)
         _widht, _height,
         SDL_WINDOW_SHOWN
     );
-
-    SDL_Event event;
-    
-    if (SDL_PollEvent(&event))
-    {
-
-    }
-
-    SDL_Delay(5000);
 }
 
 /**
@@ -43,5 +34,8 @@ void PHPSDLWindow::__construct(Php::Parameters &parameters)
  */
 void PHPSDLWindow::__destruct()
 {
-	// nothing todo
+    if (_window != nullptr)
+    {
+        SDL_DestroyWindow( _window );
+    }
 }

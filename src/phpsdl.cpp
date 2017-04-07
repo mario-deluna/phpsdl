@@ -19,6 +19,14 @@ Php::Value PHPSDL_Init(Php::Parameters &params)
 }
 
 /**
+ * Quit SDL
+ */
+void PHPSDL_Quit()
+{
+    SDL_Quit();
+}
+
+/**
  *  my_return_value_function()
  */
 // void my_return_value_function()

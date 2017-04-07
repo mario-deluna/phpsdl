@@ -12,6 +12,8 @@
 		100475311E978BFC00BC25F1 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 100475291E978BFC00BC25F1 /* main.cpp */; };
 		100475331E978BFC00BC25F1 /* phpsdl_window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1004752B1E978BFC00BC25F1 /* phpsdl_window.cpp */; };
 		100475351E978BFC00BC25F1 /* phpsdl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1004752E1E978BFC00BC25F1 /* phpsdl.cpp */; };
+		1004753E1E97927800BC25F1 /* phpsdl_renderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1004753C1E97927800BC25F1 /* phpsdl_renderer.cpp */; };
+		100475411E97AB7C00BC25F1 /* phpsdl_event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1004753F1E97AB7C00BC25F1 /* phpsdl_event.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +37,10 @@
 		1004752C1E978BFC00BC25F1 /* phpsdl_window.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = phpsdl_window.h; path = src/phpsdl_window.h; sourceTree = "<group>"; };
 		1004752E1E978BFC00BC25F1 /* phpsdl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = phpsdl.cpp; path = src/phpsdl.cpp; sourceTree = "<group>"; };
 		1004752F1E978BFC00BC25F1 /* phpsdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = phpsdl.h; path = src/phpsdl.h; sourceTree = "<group>"; };
+		1004753C1E97927800BC25F1 /* phpsdl_renderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = phpsdl_renderer.cpp; path = src/phpsdl_renderer.cpp; sourceTree = "<group>"; };
+		1004753D1E97927800BC25F1 /* phpsdl_renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = phpsdl_renderer.h; path = src/phpsdl_renderer.h; sourceTree = "<group>"; };
+		1004753F1E97AB7C00BC25F1 /* phpsdl_event.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = phpsdl_event.cpp; path = src/phpsdl_event.cpp; sourceTree = "<group>"; };
+		100475401E97AB7C00BC25F1 /* phpsdl_event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = phpsdl_event.h; path = src/phpsdl_event.h; sourceTree = "<group>"; };
 		106976241E978B87005178D8 /* phpsdl */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = phpsdl; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -57,6 +63,10 @@
 				1004752C1E978BFC00BC25F1 /* phpsdl_window.h */,
 				1004752E1E978BFC00BC25F1 /* phpsdl.cpp */,
 				1004752F1E978BFC00BC25F1 /* phpsdl.h */,
+				1004753C1E97927800BC25F1 /* phpsdl_renderer.cpp */,
+				1004753D1E97927800BC25F1 /* phpsdl_renderer.h */,
+				1004753F1E97AB7C00BC25F1 /* phpsdl_event.cpp */,
+				100475401E97AB7C00BC25F1 /* phpsdl_event.h */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -161,11 +171,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				100475411E97AB7C00BC25F1 /* phpsdl_event.cpp in Sources */,
 				100475351E978BFC00BC25F1 /* phpsdl.cpp in Sources */,
 				100475331E978BFC00BC25F1 /* phpsdl_window.cpp in Sources */,
 				100475281E978BBE00BC25F1 /* README.md in Sources */,
 				100475271E978BBE00BC25F1 /* Makefile in Sources */,
 				100475311E978BFC00BC25F1 /* main.cpp in Sources */,
+				1004753E1E97927800BC25F1 /* phpsdl_renderer.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,6 +29,11 @@ public:
 	 */
 	PHPSDLWindow() {}
 	virtual ~PHPSDLWindow() {}
+    
+    /**
+     * Window access
+     */
+    inline SDL_Window *getWindow() { return _window; }
 
 	/**
 	 * PHP constructors

@@ -24,4 +24,10 @@ const int PHPSDL_INIT_EVERYTHING    	= SDL_INIT_EVERYTHING;
 
 Php::Value PHPSDL_Init(Php::Parameters &params);
 
+/**
+ * Quit SDL
+ * ---
+ */
+void PHPSDL_Quit();
+
 #endif /* PHPSDL_H_ */
