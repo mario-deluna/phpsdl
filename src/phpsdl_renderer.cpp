@@ -29,7 +29,7 @@ void PHPSDLRenderer::__construct(Php::Parameters &parameters)
 }
 
 /**
- *  PHP Destructor
+ * PHP Destructor
  */
 void PHPSDLRenderer::__destruct()
 {
@@ -38,3 +38,52 @@ void PHPSDLRenderer::__destruct()
 //        SDL_DestroyWindow( _window );
 //    }
 }
+
+/**
+ * Clear
+ */
+void PHPSDLRenderer::clear()
+{
+    SDL_RenderClear(_renderer);
+}
+
+/**
+ * Present
+ */
+void PHPSDLRenderer::present()
+{
+    SDL_RenderPresent(_renderer);
+}
+
+/**
+ * Set color
+ */
+void PHPSDLRenderer::setDrawColor(Php::Parameters &parameters)
+{
+    Php::Value r = parameters[0];
+    Php::Value g = parameters[1];
+    Php::Value b = parameters[2];
+    Php::Value a = parameters[3];
+    
+    SDL_SetRenderDrawColor(_renderer, (int) r, (int) g, (int) b, (int) a);
+}
+
+/**
+ * Draw rect
+ */
+void PHPSDLRenderer::drawRect(Php::Parameters &parameters)
+{
+    SDL_Rect rect;
+    
+    rect.x = (double) parameters[0];
+    rect.y = (double) parameters[1];
+    rect.w = (double) parameters[2];
+    rect.h = (double) parameters[3];
+    
+    SDL_RenderFillRect(_renderer, &rect);
+}
+
+
+
+
+

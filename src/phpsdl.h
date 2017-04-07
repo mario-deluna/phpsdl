@@ -30,4 +30,16 @@ Php::Value PHPSDL_Init(Php::Parameters &params);
  */
 void PHPSDL_Quit();
 
+/**
+ * Get Ticks
+ * ---
+ */
+Php::Value PHPSDL_GetTicks();
+
+/**
+ * Delay
+ * ---
+ */
+void PHPSDL_Delay(Php::Parameters &params);
+
 #endif /* PHPSDL_H_ */

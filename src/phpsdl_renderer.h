@@ -35,6 +35,14 @@ public:
      */
     void __construct(Php::Parameters &parameters);
     void __destruct();
+    
+    /**
+     * Drawing
+     */
+    void clear();
+    void present();
+    void setDrawColor(Php::Parameters &parameters);
+    void drawRect(Php::Parameters &parameters);
 };
 
 #endif /* phpsdl_renderer_h */

@@ -19,14 +19,25 @@ void PHPSDL_PumpEvents()
 /**
  * Poll events
  */
-Php::Value PHPSDL_PollEvent(Php::Parameters &parameters)
+Php::Value PHPSDL_PollEvent()
 {
     SDL_Event event;
     
     if (SDL_PollEvent(&event))
     {
-        return event.type
+        switch (event.type) {
+            case SDL_QUIT:
+                return PHPSDL_QUIT;
+                break;
+                
+            case key
+                
+            default:
+                return 1;
+                break;
+        }
     }
     
     return nullptr;
 }
+

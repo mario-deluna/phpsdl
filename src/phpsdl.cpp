@@ -10,6 +10,7 @@
 
 /**
  *  SDL_Init
+ * ---
  */
 Php::Value PHPSDL_Init(Php::Parameters &params)
 {
@@ -20,11 +21,33 @@ Php::Value PHPSDL_Init(Php::Parameters &params)
 
 /**
  * Quit SDL
+ * ---
  */
 void PHPSDL_Quit()
 {
     SDL_Quit();
 }
+
+/**
+ * Get ticks
+ * ---
+ */
+Php::Value PHPSDL_GetTicks()
+{
+    return (int) SDL_GetTicks();
+}
+
+/**
+ * Delay
+ * ---
+ */
+void PHPSDL_Delay(Php::Parameters &params)
+{
+    Php::Value delay = params[0];
+    
+    return SDL_Delay((int) delay);
+}
+
 
 /**
  *  my_return_value_function()
