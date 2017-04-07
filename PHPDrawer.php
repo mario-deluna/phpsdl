@@ -18,6 +18,18 @@ $renderer = new SDLRenderer($window);
 $running = true;
 $countedFrames = 0;
 
+$squares = [];
+
+for($i=0; $i<8000; $i++)
+{
+	$squares[] = [
+		mt_rand(0, SCREEN_WIDTH), 
+		mt_rand(0, SCREEN_HEIGHT),
+		mt_rand(0, 50), // r
+		mt_rand(0, 255) // c
+	];
+}
+
 while($running)
 {
 	$startTick = SDL_GetTicks();
@@ -39,15 +51,21 @@ while($running)
 	$renderer->clear();
 
 
-	$renderer->setDrawColor(255, 255, 0, 255);
+	
 
-	$x = sin($countedFrames / 10) * 150;
-	$y = cos($countedFrames / 10) * 270;
+	foreach($squares as $square)
+	{
+		list($sx, $sy, $r, $c) = $square;
 
-	$x += 100;
-	$y += 100;
+		$x = sin($countedFrames / 10) * $r;
+		$y = cos($countedFrames / 10) * $r;
 
-	$renderer->drawRect($x, $y, 50, 50);
+		$x += $sx + 50;
+		$y += $sy + 50;
+
+		$renderer->setDrawColor($c, $c, $c, 255);
+		$renderer->drawRect($x, $y, 1, 1);
+	}
 
 	$renderer->present();
 

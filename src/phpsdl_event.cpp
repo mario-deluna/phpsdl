@@ -30,8 +30,6 @@ Php::Value PHPSDL_PollEvent()
                 return PHPSDL_QUIT;
                 break;
                 
-            case key
-                
             default:
                 return 1;
                 break;
