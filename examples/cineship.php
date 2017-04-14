@@ -38,6 +38,11 @@ for($i=0;$i<=24;$i++)
 	$enemyExplTextrures[$i] = new SDLTexture($renderer, __DIR__ . '/assets/explosion/en' . $i . '.png');
 }
 
+// Background
+$backgroundL1 = new SDLTexture($renderer, __DIR__ . '/assets/starbg.png');
+$backgroundL2 = new SDLTexture($renderer, __DIR__ . '/assets/starbg2.png');
+$backgroundL3 = new SDLTexture($renderer, __DIR__ . '/assets/starbg3.png');
+
 /**
  * The ship
  */ 
@@ -332,6 +337,9 @@ $enemies = [];
 $enemyCount = 0;
 $enemyKills = 0;
 
+// background
+$backgroundX = 0;
+
 while($running)
 {
 	$startTick = SDL_GetTicks();
@@ -363,6 +371,19 @@ while($running)
 
 	$renderer->setDrawColor(33, 33, 33, 255);
 	$renderer->clear();
+
+	// draw the background
+	$renderer->copy($backgroundL1, $backgroundX, 0, 1000, 800);
+	$renderer->copy($backgroundL1, $backgroundX + 1000, 0, 1000, 800);
+	$renderer->copy($backgroundL2, $backgroundX * 0.6, 0, 1000, 800);
+	$renderer->copy($backgroundL2, ($backgroundX + 1000) * 0.6, 0, 1000, 800);
+	$renderer->copy($backgroundL3, $backgroundX * 0.3, 0, 1000, 800);
+	$renderer->copy($backgroundL3, ($backgroundX + 1000) * 0.3, 0, 1000, 800);
+	$backgroundX -= 0.5;
+
+	if ($backgroundX < -1000) {
+		$backgroundX = 0;
+	}
 
 	// draw the ship instance
 	$cineship->draw($renderer);
