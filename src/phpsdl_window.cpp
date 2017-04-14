@@ -7,6 +7,7 @@
  *  Header
  */
 #include "phpsdl_window.h"
+#include <iostream>
 
 /**
  *  PHP Constructor
@@ -14,16 +15,16 @@
  */
 void PHPSDLWindow::__construct(Php::Parameters &parameters)
 {
-	Php::Value title = parameters[0];
-
-	// assign the title
-	_title = title.stringValue();
+	std::string _title = parameters[0].stringValue();
+    
+    _widht = parameters[3];
+    _height = parameters[4];
 
 	// create the window
 	_window = SDL_CreateWindow(
         _title.c_str(),
-        SDL_WINDOWPOS_UNDEFINED,
-        SDL_WINDOWPOS_UNDEFINED,
+        parameters[1], // posx
+        parameters[2], // posy
         _widht, _height,
         SDL_WINDOW_SHOWN
     );

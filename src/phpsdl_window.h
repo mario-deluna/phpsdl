@@ -9,6 +9,11 @@
 #include <SDL2/SDL.h>
 
 /**
+ * Window Constants
+ */
+const int PHPSDL_WINDOWPOS_UNDEFINED = SDL_WINDOWPOS_UNDEFINED;
+
+/**
  * SDL Window class
  * ---
  */
