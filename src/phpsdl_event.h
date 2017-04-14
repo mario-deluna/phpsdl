@@ -17,6 +17,10 @@ const int PHPSDL_FIRSTEVENT     = SDL_FIRSTEVENT;
 /* Application events */
 const int PHPSDL_QUIT           = SDL_QUIT;
 
+/* Key Events */
+const int PHPSDL_KEYDOWN         = SDL_KEYDOWN;
+const int PHPSDL_KEYUP           = SDL_KEYUP;
+
 
 /**
  * END OF CONSTANTS 

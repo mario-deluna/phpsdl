@@ -25,15 +25,24 @@ Php::Value PHPSDL_PollEvent()
     
     if (SDL_PollEvent(&event))
     {
+        Php::Value event_return;
+        
+        event_return[0] = (int) event.type;
+        
         switch (event.type) {
-            case SDL_QUIT:
-                return PHPSDL_QUIT;
+            case SDL_KEYDOWN:
+            case SDL_KEYUP:
+                
+                event_return[1] = event.key.keysym.sym;
+                
                 break;
                 
             default:
-                return 1;
+                
                 break;
         }
+        
+        return event_return;
     }
     
     return nullptr;
