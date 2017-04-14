@@ -12,7 +12,11 @@ if (SDL_Init(SDL_INIT_VIDEO) != 0)
 	die("Could not initalize SDL.");
 }
 
-$window = new SDLWindow("Hallo Window");
+$window = new SDLWindow(
+	"Hallo Window",
+	SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
+	1000, 800
+);
 $renderer = new SDLRenderer($window);
 
 $running = true;
@@ -20,7 +24,7 @@ $countedFrames = 0;
 
 $squares = [];
 
-for($i=0; $i<8000; $i++)
+for($i=0; $i<1000; $i++)
 {
 	$squares[] = [
 		mt_rand(0, SCREEN_WIDTH), 
@@ -36,11 +40,24 @@ while($running)
 
 	while ($event = SDL_PollEvent()) 
 	{
-		switch ($event) {
+		switch ($event[0]) {
 			case SDL_QUIT:
 				$running = false;
 				break;
 			
+			case SDL_KEYDOWN:
+
+				switch ($event[1]) {
+					case SDLK_ESCAPE:
+						$running = false;
+						break;
+
+					case SDLK_a:
+						echo "A\n";
+						break;
+				}
+			break;
+
 			default:
 				# code...
 				break;
@@ -49,9 +66,6 @@ while($running)
 
 	$renderer->setDrawColor(33, 33, 33, 255);
 	$renderer->clear();
-
-
-	
 
 	foreach($squares as $square)
 	{

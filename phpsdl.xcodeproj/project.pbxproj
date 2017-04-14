@@ -30,7 +30,6 @@
 
 /* Begin PBXFileReference section */
 		100475231E978BBE00BC25F1 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
-		100475241E978BBE00BC25F1 /* PHPDrawer.php */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.php; path = PHPDrawer.php; sourceTree = "<group>"; };
 		100475251E978BBE00BC25F1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		100475291E978BFC00BC25F1 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = "<group>"; };
 		1004752B1E978BFC00BC25F1 /* phpsdl_window.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = phpsdl_window.cpp; path = src/phpsdl_window.cpp; sourceTree = "<group>"; };
@@ -59,14 +58,14 @@
 			isa = PBXGroup;
 			children = (
 				100475291E978BFC00BC25F1 /* main.cpp */,
-				1004752B1E978BFC00BC25F1 /* phpsdl_window.cpp */,
 				1004752C1E978BFC00BC25F1 /* phpsdl_window.h */,
-				1004752E1E978BFC00BC25F1 /* phpsdl.cpp */,
+				1004752B1E978BFC00BC25F1 /* phpsdl_window.cpp */,
 				1004752F1E978BFC00BC25F1 /* phpsdl.h */,
-				1004753C1E97927800BC25F1 /* phpsdl_renderer.cpp */,
+				1004752E1E978BFC00BC25F1 /* phpsdl.cpp */,
 				1004753D1E97927800BC25F1 /* phpsdl_renderer.h */,
-				1004753F1E97AB7C00BC25F1 /* phpsdl_event.cpp */,
+				1004753C1E97927800BC25F1 /* phpsdl_renderer.cpp */,
 				100475401E97AB7C00BC25F1 /* phpsdl_event.h */,
+				1004753F1E97AB7C00BC25F1 /* phpsdl_event.cpp */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -76,7 +75,6 @@
 			children = (
 				100475371E978C1600BC25F1 /* src */,
 				100475231E978BBE00BC25F1 /* Makefile */,
-				100475241E978BBE00BC25F1 /* PHPDrawer.php */,
 				100475251E978BBE00BC25F1 /* README.md */,
 				106976251E978B87005178D8 /* Products */,
 			);
@@ -326,6 +324,7 @@
 				1004753B1E978CA400BC25F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1069761F1E978B87005178D8 /* Build configuration list for PBXProject "phpsdl" */ = {
 			isa = XCConfigurationList;

@@ -1,0 +1,5 @@
+© 2011-2017 Scifiwarships 
+{
+	cineship-raw.png
+	enemy-raw.png
+}

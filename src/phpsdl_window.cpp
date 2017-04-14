@@ -26,7 +26,7 @@ void PHPSDLWindow::__construct(Php::Parameters &parameters)
         parameters[1], // posx
         parameters[2], // posy
         _widht, _height,
-        SDL_WINDOW_SHOWN
+        SDL_WINDOW_SHOWN // SDL_WINDOW_ALLOW_HIGHDPI
     );
 }
 
