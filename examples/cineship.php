@@ -33,7 +33,7 @@ $enemyTextures = [
 ];
 
 $enemyExplTextrures = [];
-for($i=0;$i<24;$i++)
+for($i=0;$i<=24;$i++)
 {
 	$enemyExplTextrures[$i] = new SDLTexture($renderer, __DIR__ . '/assets/explosion/en' . $i . '.png');
 }
@@ -128,8 +128,6 @@ class Bullet
 
 	protected $width = 100;
 
-	public $
-
 	public function __construct($x, $y)
 	{
 		$this->x = $x;
@@ -210,7 +208,25 @@ class Enemy
 	{
 		if ($this->killed)
 		{
-			global $enemies, $enemyCount, $enemyKills;
+			global $enemies, $enemyCount, $enemyKills, $enemyExplTextrures;
+
+			$renderer->copy($enemyExplTextrures[$this->killTexture], $this->x -10, $this->y - 50, 125, 97);
+			$this->killTexture++;
+
+			if ($this->killTexture === 25)
+			{
+				foreach($enemies as $ek => $enemy)
+				{
+					if ($enemy === $this)
+					{
+						$enemyCount--;
+						$enemyKills++;
+						unset($enemies[$ek]);
+
+						return;
+					}
+				}
+			}
 
 			return;
 		}
