@@ -5,7 +5,7 @@ CPP_FLAGS       = -Wall -c -I. -O2 -std=c++11
 PREFIX			= /usr
 
 LD              = g++
-LD_FLAGS        = -Wall -shared -O2 -I/usr/local/include/SDL2 -D_THREAD_SAFE -L/usr/local/lib -lSDL2
+LD_FLAGS        = -Wall -shared -O2 -I/usr/local/include/SDL2 -D_THREAD_SAFE -L/usr/local/lib -lSDL2 -lSDL2_image
 RESULT          = build/phpsdl.so
 
 SOURCES			= $(wildcard src/*.cpp)
