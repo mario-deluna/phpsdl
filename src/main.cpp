@@ -61,6 +61,9 @@ extern "C"
          * ----------
          */
         extension.add(Php::Constant("SDL_QUIT", PHPSDL_QUIT));
+        extension.add(Php::Constant("SDL_KEYDOWN", PHPSDL_KEYDOWN));
+        extension.add(Php::Constant("SDL_KEYUP", PHPSDL_KEYUP));
+        
         
         // pump events
         extension.add<PHPSDL_PumpEvents>("SDL_PumpEvents");
@@ -68,15 +71,31 @@ extern "C"
         // pump events
         extension.add<PHPSDL_PollEvent>("SDL_PollEvent");
         
+        /**
+         * SDL Keys
+         * --------
+         */
+        extension.add(Php::Constant("SDLK_ESCAPE", SDLK_ESCAPE));
+        extension.add(Php::Constant("SDLK_SPACE", SDLK_SPACE));
+        extension.add(Php::Constant("SDLK_w", SDLK_w));
+        extension.add(Php::Constant("SDLK_a", SDLK_a));
+        extension.add(Php::Constant("SDLK_s", SDLK_s));
+        extension.add(Php::Constant("SDLK_d", SDLK_d));
         
         /**
          * SDL Window
          * ----------
          */
+        extension.add(Php::Constant("SDL_WINDOWPOS_UNDEFINED", PHPSDL_WINDOWPOS_UNDEFINED));
+        
         Php::Class<PHPSDLWindow> sdlWindow("SDLWindow");
 
         sdlWindow.method<&PHPSDLWindow::__construct>("__construct", Php::Public, {
-            Php::ByVal("string", Php::Type::String),
+            Php::ByVal("title", Php::Type::String),
+            Php::ByVal("positionX", Php::Type::Constant),
+            Php::ByVal("positionY", Php::Type::Constant),
+            Php::ByVal("width", Php::Type::Numeric),
+            Php::ByVal("height", Php::Type::Numeric)
         });
 
         sdlWindow.method<&PHPSDLWindow::__destruct>("__destruct");
@@ -102,6 +121,15 @@ extern "C"
         // present
         sdlRenderer.method<&PHPSDLRenderer::present>("present");
         
+        // copy
+        sdlRenderer.method<&PHPSDLRenderer::copy>("copy", Php::Public, {
+            Php::ByVal("texture", Php::Type::Object),
+            Php::ByVal("x", Php::Type::Numeric),
+            Php::ByVal("y", Php::Type::Numeric),
+            Php::ByVal("w", Php::Type::Numeric),
+            Php::ByVal("h", Php::Type::Numeric),
+        });
+        
         // set color
         sdlRenderer.method<&PHPSDLRenderer::setDrawColor>("setDrawColor", Php::Public, {
             Php::ByVal("r", Php::Type::Numeric),
@@ -120,6 +148,22 @@ extern "C"
         
         // add the class
         extension.add(std::move(sdlRenderer));
+        
+        /**
+         * SDL Texture
+         * ------------
+         */
+        Php::Class<PHPSDLTexture> sdlTexture("SDLTexture");
+        
+        sdlTexture.method<&PHPSDLTexture::__construct>("__construct", Php::Public, {
+            Php::ByVal("renderer", Php::Type::Object),
+            Php::ByVal("path", Php::Type::String),
+        });
+        
+        sdlTexture.method<&PHPSDLTexture::__destruct>("__destruct");
+        
+        // add the class
+        extension.add(std::move(sdlTexture));
         
         // return the extension module
         return extension.module();
